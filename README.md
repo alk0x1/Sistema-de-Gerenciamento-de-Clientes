@@ -1,9 +1,9 @@
 # Sistema de Gerenciamento de Clientes
 
 ### Pré-requisitos
-Node.js v20.x.x
-npm ou yarn
-PostgreSQL 
+- Node.js v20.x.x
+- npm ou yarn
+- PostgreSQL 
 
 
 ### Instalando e Executando o Backend
