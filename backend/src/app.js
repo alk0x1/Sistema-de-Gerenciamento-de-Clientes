@@ -1,9 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { customerRoutes } from './routes/customer.js';
+import { customerRoutes } from './routes.js';
 import { initializeTable } from './db/init.js';
-// import routeOptimizationRoutes from './routes/routeOptimizationRoutes.js';
 // import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
 const app = express();
@@ -19,6 +18,7 @@ app.use(bodyParser.json()); // Parse JSON bodies
 
 // Routes
 app.use('/api/customers', customerRoutes);
+
 // app.use('/api/route-optimization', routeOptimizationRoutes);
 
 // Error handling

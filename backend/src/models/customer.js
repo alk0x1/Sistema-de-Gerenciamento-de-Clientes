@@ -31,4 +31,9 @@ export class CustomerModel {
     const result = await pool.query('DELETE FROM customers WHERE id = $1 RETURNING *', [id]);
     return result.rowCount > 0;
   }
+
+  static async findAllWithCoordinates() {
+    const result = await pool.query('SELECT id, name, x_coordinate, y_coordinate FROM customers');
+    return result.rows;
+  }
 }

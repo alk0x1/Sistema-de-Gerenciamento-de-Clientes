@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { toast } from 'react-toastify';
+import { createCustomer } from '../../services/customerService';
 
 export function RegisterCustomerForm() {
   const [name, setName] = useState('');
@@ -41,8 +42,6 @@ export function RegisterCustomerForm() {
       return notifyError('Por favor, preencha todos os campos obrigatórios.');
     }
 
-    // Additional validations (like email format, phone number format, etc.) can be added here
-
     const newCustomer = {
       name,
       email,
@@ -50,22 +49,8 @@ export function RegisterCustomerForm() {
       xCoordinate,
       yCoordinate
     };
-
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newCustomer)
-    };
-    // const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-    const apiBaseUrl = "http://localhost:5000/api";
-
-    fetch(`${apiBaseUrl}/customers`, requestOptions)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+  
+    createCustomer(newCustomer)
       .then(data => {
         console.log("data: ", data);
         notifySuccess();
