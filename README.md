@@ -3,7 +3,8 @@
 ### Pré-requisitos
 - Node.js v20.x.x
 - npm ou yarn
-- PostgreSQL 
+- PostgreSQL _(obs: A própria aplicação cria a tabela no banco de dados passando uma query para biblioteca 'pg' do postgres.
+O arquivo de inicialização está em backend/src/db/init.js.)_
 
 
 ### Instalando e Executando o Backend
